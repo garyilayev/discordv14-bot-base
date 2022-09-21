@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const dotenv = require('dotenv');
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, GatewayIntentBits, ButtonBuilder, ButtonStyle, Collection } = Discord;
+const { Client, GatewayIntentBits, Collection } = Discord;
 dotenv.config();
 
 const client = new Client({
@@ -15,6 +15,8 @@ const client = new Client({
         GatewayIntentBits.GuildScheduledEvents,
      ],
 });
+
+client.polls = new Collection();
 
 const handlersPath = path.join(__dirname, 'handlers');
 const handlersFiles = fs.readdirSync(handlersPath).filter(file => file.endsWith('.js'));
