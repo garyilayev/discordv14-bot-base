@@ -1,8 +1,10 @@
-const Discord = require('discord.js'); 
-const dotenv = require('dotenv');
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, GatewayIntentBits, Collection } = Discord;
+const Discord = require('discord.js'); 
+const dotenv = require('dotenv');
+const {GlobSync} = require('glob');
+const glob = GlobSync;
+const { Client, GatewayIntentBits } = Discord;
 dotenv.config();
 
 const client = new Client({
@@ -16,7 +18,6 @@ const client = new Client({
      ],
 });
 
-client.polls = new Collection();
 
 const handlersPath = path.join(__dirname, 'handlers');
 const handlersFiles = fs.readdirSync(handlersPath).filter(file => file.endsWith('.js'));
@@ -24,7 +25,7 @@ const handlersFiles = fs.readdirSync(handlersPath).filter(file => file.endsWith(
 for (const file of handlersFiles) {
     const filePath = path.join(handlersPath, file);
     const handler = require(filePath);
-    handler.init(client);
+    handler.init(client, glob);
 }
 
 client.login(process.env.DISCORD_TOKEN);

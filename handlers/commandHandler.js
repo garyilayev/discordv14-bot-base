@@ -1,10 +1,15 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { Collection } = require('discord.js');
+const { Glob } = require('glob');
+const { Collection, Client } = require('discord.js');
 
 module.exports = {
 	name: 'commandHandler',
-	init(client) {        
+        /**
+     * @param { Glob } glob 
+     * @param { Client } client 
+     */
+	init(client, glob) {        
         client.commands = new Collection();
 
         const commandsPath = path.join(__dirname,  '..', 'commands');

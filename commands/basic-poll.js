@@ -33,11 +33,11 @@ module.exports = {
 			const row = new ActionRowBuilder()
 			.addComponents([
 				new ButtonBuilder()
-				.setCustomId(`yes.${poll.id}`)
+				.setCustomId('Yes')
 				.setLabel(`Yes [${poll.yes_votes}]`)
 				.setStyle(ButtonStyle.Success),
 				new ButtonBuilder()
-				.setCustomId(`no.${poll.id}`)
+				.setCustomId('No')
 				.setLabel(`No [${poll.no_votes}]`)
 				.setStyle(ButtonStyle.Danger),
 				]
