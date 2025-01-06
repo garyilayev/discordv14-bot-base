@@ -4,7 +4,7 @@
 This is a bare bones [DiscordJS](https://discord.js.org/) project running on DiscordJS version 14.
 
 ### Prerequisites:
-before cloning and installing make sure you have you're bot token ready,  
+before cloning and installing make sure you have your bot token ready,  
 And make sure you have Node.js V16+ installed.
 
 ### Installation:
